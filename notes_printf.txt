@@ -1,0 +1,124 @@
+plan printf
+types:
+//cspdiuxX% et '-0.*'
+//char, char *, void *, int, int, unsigned int, 
+//unsigned hexadecimal integer, unsigned hexadecimal integer (majuscules)
+options possibles:
+-:si la chaine fait moins du chiffre apres, tu dois combler avec des espaces apres
+0:(jamais - et 0) rajouter des zeros avant, (si 0 et ., mettre des espaces)
+.:précision (pour d, i, o, u, x, X) donne le nombre mini de digits ajouter des zeros devant pour combler; 
+  pour s donne le nombre maxi de digits
+*:précise la longueur en argument
+
+étape 1: mesurer la chaine
+étape 2: regarder s'il faut rajouter des trucs devant
+étape 3: print
+étape 4: ajouter les trucs derriere
+
+        
+FLAGS
+
+
+
+
+i = 12345;
+%i	->	|12345|
+%8i	->	|   12345|
+%-8i	->	|12345   |
+%08i	->	|00012345|
+%.8i	->	|00012345|
+%010.8i	->	|  00012345|
+
+
+
+    (*flags).minus = 0;		1
+    (*flags).zero = 0;		1
+    (*flags).width = -1;	lenght
+    (*flags).precision = -1;	lenght
+    (*flags).type = 'a';	type
+
+
+
+
+if (flags.type == 'i' || flags.type == 'd')
+	ft_putnbr_fd(va_arg(ap, int), 1)
+else if (flags.type == 'u' || flags.type == 'x' || flags.type == 'X')
+	ft_putnbru(va_arg(ap, unsigned long long), flags.type);
+else if (flags.type == 'c')
+	ft_putchar_fd(va_arg(ap, char), 1);
+else if (flags.type == 's')
+	ft_putstr_fd(va_arg(ap, char *), 1);
+else if (flags.type == 'p')
+	ft_putvoid_fd(va_arg(ap, void *), 1);
+else
+	ft_putchar_fd('%');
+
+int main() {
+  int   i = 12345;
+  void  *ptr;
+  
+  ptr = &i;
+  printf("|%p|\n\n", ptr);
+  printf("|%17p|\n", ptr);
+  printf("|%-17p|\n", ptr);
+  printf("|%017p|\n", ptr);
+  printf("|%.17p|\n\n", ptr);
+  
+  printf("|%17.14p|\n", ptr);
+  printf("|%-17.14p|\n", ptr);
+  printf("|%017.14p|\n\n", ptr);
+  
+  printf("|%14.17p|\n", ptr);
+  printf("|%-14.17p|\n", ptr);
+  printf("|%014.17p|\n\n", ptr);
+  
+  printf("|%17.4p|\n", ptr);
+  printf("|%-17.4p|\n", ptr);
+  printf("|%017.4p|\n\n", ptr);
+  
+  printf("|%6.16p|\n", ptr);
+  printf("|%-6.16p|\n", ptr);
+  printf("|%06.16p|\n\n\n\n", ptr);
+/*
+  printf("|%02p|\n", ptr);
+  printf("|%-2p|\n", ptr);
+  printf("|%.2p|\n", ptr);
+  printf("|%02.4p|\n", ptr);
+  printf("|%2.4p|\n", ptr);
+  printf("|%-2.4p|\n", ptr);
+  printf("|%04.2p|\n", ptr);
+  printf("|%4.2p|\n", ptr);
+  printf("|%-4.2p|\n", ptr);*/
+  return (0);
+}
+
+
+char                    *ft_ptrtoa(void *ptr)
+{
+    char            *str;
+    char            *temp;
+    unsigned long   n;
+
+    n = (unsigned long)ptr;
+    if (!(str = ft_ultoa(n)))
+        return (NULL);
+    if (!(temp = ft_convert_base(str, "0123456789", "0123456789abcdef")))
+    {
+        free(str);
+        return (NULL);
+    }
+    free(str);
+    if (!(str = malloc(sizeof(char) * (ft_strlen(temp) + 3))))
+    {
+        free(temp);
+        return (NULL);
+    }
+    str[0] = '0';
+    str[1] = 'x';
+    n = 1;
+    while (++n && temp[n - 2])
+        str[n] = temp[n - 2];
+    str[n] = '\0';
+    free(temp);
+    return (str);
+}
