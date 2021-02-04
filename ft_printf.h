@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:34:59 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/03 11:28:31 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/04 12:27:33 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdio.h>
 typedef struct		s_flags
 {
 	int				minus;
