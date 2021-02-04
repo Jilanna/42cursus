@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:06 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/04 14:40:35 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/04 20:15:11 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		ft_printf(const char *format, ...)
 	int			out;
 
 	va_start(ap, format);
+	ft_putchar_fd('w', 1);
 	printf("beftreatment\n");
 	out = ft_treatment(ap, format);
 	printf("afttreatment\n");
@@ -36,6 +37,7 @@ int		ft_treatment(va_list ap, const char *format)
 	int			out;
 	int			i;
 
+	printf("timawine");
 	out = 0;
 	i = -1;
 	if (!(flags = malloc(sizeof(t_flags))))
