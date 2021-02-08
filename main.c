@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 13:43:48 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/04 20:15:33 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/08 20:57:45 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,19 @@ int		main(void)
 {
 	int		i = 1233;
 	char	c = 'g';
+	int		out;
+	int		vout;
+
 	printf("1nico:\n");
-	ft_printf("2coucou\n");
+	out = bob("2coucou\n");
 	printf("3vrai:\n");
-	printf("4coucou\n");
+	vout = printf("4coucou\n");
+	printf("out = %i, vout = %i\n", out, vout);
 	printf("5nico:\n");
-	ft_printf("6ici|%i|\n", i);
+	out = bob("6ici|%i|\n", i);
 	printf("7vrai:\n");
-	printf("8ici|%i|%c|%p|\n", i, c, &i);
+	vout = printf("8ici|%i|%c|%p|\n", i, c, &i);
+	printf("out = %i, vout = %i\n", out, vout);
 
 
 }

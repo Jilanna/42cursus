@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:34:59 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/04 12:27:33 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/04 20:20:55 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_flags
 	char			type;
 }					t_flags;
 
-int		ft_printf(const char *format, ...);
+int		bob(const char *format, ...);
 void	ft_putchar_fd(char c, int fd);
 int		ft_treatment(va_list ap, const char *format);
 char	*ft_recup(t_flags *flags, va_list ap);

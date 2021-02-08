@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:06 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/04 20:15:11 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/08 20:57:24 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@ void		ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-int		ft_printf(const char *format, ...)
+int		bob(const char *format, ...)
 {
 	va_list		ap;
 	int			out;
 
 	va_start(ap, format);
-	ft_putchar_fd('w', 1);
-	printf("beftreatment\n");
+	//printf("beftreatment\n");
 	out = ft_treatment(ap, format);
-	printf("afttreatment\n");
+	//printf("afttreatment\n");
 	va_end(ap);
 	return (out);
 }
@@ -37,20 +36,18 @@ int		ft_treatment(va_list ap, const char *format)
 	int			out;
 	int			i;
 
-	printf("timawine");
 	out = 0;
 	i = -1;
 	if (!(flags = malloc(sizeof(t_flags))))
 		return (-1);
 	while (format[++i] != '\0')
 	{
-		printf("la\n");
 		if (format[i] == '%')
 		{
-			printf("avt flags\n");
+			//printf("avt flags%i\n", out);
 			if (ft_flags(flags, format, &i, ap) == -1)
 				return (-1);
-			printf("avt printing\n");
+			printf("avt printing, out = |%i|%i|\n", out, i);
 			out += ft_printing(flags, ap);
 		}
 		else
