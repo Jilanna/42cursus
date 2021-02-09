@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:06 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/08 20:57:24 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/09 15:36:18 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,11 @@ int		ft_treatment(va_list ap, const char *format)
 	{
 		if (format[i] == '%')
 		{
+			i++;
 			//printf("avt flags%i\n", out);
 			if (ft_flags(flags, format, &i, ap) == -1)
 				return (-1);
-			printf("avt printing, out = |%i|%i|\n", out, i);
+			//printf("avt printing, out = |%i|%i|\n", out, i);
 			out += ft_printing(flags, ap);
 		}
 		else
@@ -56,5 +57,7 @@ int		ft_treatment(va_list ap, const char *format)
 			out++;
 		}
 	}
+	free(flags);
+	flags = NULL;
 	return (out);
 }

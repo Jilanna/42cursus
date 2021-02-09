@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 13:43:48 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/08 20:57:45 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/09 15:34:05 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 
 int		main(void)
 {
-	int		i = 1233;
+	int		i = 12345;
 	char	c = 'g';
 	int		out;
 	int		vout;
+	int		*ptr = &i;
 
 	printf("1nico:\n");
 	out = bob("2coucou\n");
@@ -28,8 +29,18 @@ int		main(void)
 	printf("out = %i, vout = %i\n", out, vout);
 	printf("5nico:\n");
 	out = bob("6ici|%i|\n", i);
+	out = bob("6ici|%8i|\n", i);
+	out = bob("6ici|%-8i|\n", i);
+	out = bob("6ici|%08i|\n", i);
+	out = bob("6ici|%.8i|\n", i);
+	out = bob("6ici|%010.8i|\n", i);
 	printf("7vrai:\n");
-	vout = printf("8ici|%i|%c|%p|\n", i, c, &i);
+	vout = printf("8ici|%i|\n", i);
+	vout = printf("8ici|%8i|\n", i);
+	vout = printf("8ici|%-8i|\n", i);
+	vout = printf("8ici|%08i|\n", i);
+	vout = printf("8ici|%.8i|\n", i);
+	vout = printf("8ici|%010.8i|\n", i);
 	printf("out = %i, vout = %i\n", out, vout);
 
 

@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:43:33 by nvu               #+#    #+#             */
-/*   Updated: 2021/01/28 14:44:51 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/09 16:22:31 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static int		invers(int n, int i)
 	while (i > 0)
 	{
 		nb = nb * 10 + (n % 10);
+		n = n / 10;
 		i--;
 	}
 	return (nb);
@@ -48,6 +49,7 @@ char			*ft_itoa(int n)
 	str = malloc(i + 1);
 	if (str == NULL)
 		return (NULL);
+	str[i] = '\0';
 	n = invers(n, i);
 	max = i;
 	i = 0;
@@ -57,6 +59,5 @@ char			*ft_itoa(int n)
 		n = n / 10;
 		i++;
 	}
-	str[max] = 0;
 	return (str);
 }

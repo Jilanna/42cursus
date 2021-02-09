@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:44:55 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/03 13:21:00 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/09 14:14:15 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static unsigned long	invers(unsigned long n, long i)
 	while (i > 0)
 	{
 		nb = nb * 10 + (n % 10);
+		n /= 10;
 		i--;
 	}
 	return (nb);
