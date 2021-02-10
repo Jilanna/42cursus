@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/09 16:18:12 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/10 19:45:50 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int		ft_printing(t_flags *flags, va_list ap)
 
 	if ((str = ft_recup(flags, ap)) == NULL)
 		return (-1);
-	len = ft_strlen(str);
+	printf("chaine bef print|%s|\n", str);
+	len = (int)ft_strlen(str);
 	if ((flags->type == 'i') || (flags->type == 'd') || (flags->type == 'u')
 		|| (flags->type == 'x') || (flags->type == 'X'))
 		len = ft_print_nb(str, len, flags);

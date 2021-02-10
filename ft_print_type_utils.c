@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:08 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/09 16:26:54 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/10 20:09:52 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ int		ft_add_before(char *str, char c, int len, int to_add)
 	char		*temp;
 	int			i;
 
-	if (!(temp = malloc(sizeof(char) * (len + to_add))))
+	if (!(temp = malloc(sizeof(char) * (len + to_add + 1))))
 		return (-1);
 	i = -1;
 	printf("abcde\n");
 	while (++i < to_add)
 		temp[i] = c;
 	printf("bcdef%i|%i\n", i, to_add);
-	printf("|%s|\n", str);
+	//printf("len|%i|\n", len);
 	while (str[i - to_add])
 	{
+		printf("temp=|%s|%i", temp, i);
 		temp[i] = str[i - to_add];
-		//printf("i=%i", i);
 		i++;
 	}
 	printf("cdefg\n");
