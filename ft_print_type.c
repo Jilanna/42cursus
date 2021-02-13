@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:10 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/10 19:47:37 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/13 15:50:20 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,16 @@ int		ft_print_nb(char *str, int len, t_flags *flags)
 	if (flags->precision > len)
 		if ((len = ft_add_before(str, '0', len, flags->precision - len)) == -1)
 			return (-1);
-	printf("yo\n");
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)
 			len = ft_add_after(str, ' ', flags->width);
 		else if ((flags->zero == 0) || (flags->zero == 1 
 			&& flags->precision != -1))
-		{
 			len = ft_add_before(str, ' ', len, (flags->width) - len);
-			printf("rftyui\n");
-		}
 		else
 			len = ft_add_before(str, '0', len, flags->width - len);
 	}
-	printf("coucou\n");
 	return (len);
 }
 
