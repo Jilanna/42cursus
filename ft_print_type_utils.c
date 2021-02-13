@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:08 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/10 20:09:52 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/11 10:01:32 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_add_before(char *str, char c, int len, int to_add)
 	//printf("len|%i|\n", len);
 	while (str[i - to_add])
 	{
-		printf("temp=|%s|%i", temp, i);
+		//printf("temp=|%s|%i", temp, i);
 		temp[i] = str[i - to_add];
 		i++;
 	}
