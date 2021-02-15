@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:10 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/15 17:34:19 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 19:04:09 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ char	*ft_print_ptr(char *str, int len, t_flags *flags)
 	}
 	if (!(temp = malloc(sizeof(char) * (len + 3))))
 		return (NULL);
-	str[0] = '0';
-	str[1] = 'x';
+	temp[0] = '0';
+	temp[1] = 'x';
 	n = 1;
 	while (++n && str[n - 2])
 		temp[n] = str[n - 2];

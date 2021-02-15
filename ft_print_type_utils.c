@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:08 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/15 17:12:39 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 18:50:45 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char		*ft_add_after(char *str, char c, int width)
 	while (str[++i])
 		temp[i] = str[i];
 	i--;
-	while (++i < (width - 1))
+	while (++i < width)
 		temp[i] = c;
 	temp[i] = '\0';
 	free(str);

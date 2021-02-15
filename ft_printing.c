@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/15 17:28:42 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 20:24:05 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ int		ft_printing(t_flags *flags, va_list ap)
 	if (str == NULL)
 		return (-1);
 	ft_putstr(str);
-	return (ft_strlen(str));
+	len = ft_strlen(str);
+	free(str);
+	return (len);
 }

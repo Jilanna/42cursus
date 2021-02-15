@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 13:43:48 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/15 18:39:53 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 18:52:02 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int		main(void)
 	out = ft_printf("mine|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
 	vout = printf("true|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
 	printf("out = %i, vout = %i\n", out, vout);
-	out = ft_printf("mine|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
-	vout = printf("true|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	out = ft_printf("mine|%p|%8p|%-8p|%8p|%.8p|%10.8p|\n", ptr, ptr, ptr, ptr, ptr, ptr);
+	vout = printf("true|%p|%8p|%-8p|%8p|%.8p|%10.8p|\n", ptr, ptr, ptr, ptr, ptr, ptr);
 	printf("out = %i, vout = %i\n", out, vout);
 	out = ft_printf("mine|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
 	vout = printf("true|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);

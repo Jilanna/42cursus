@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:43:33 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/10 19:35:48 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 21:29:35 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,15 @@ char			*ft_itoa(int n)
 	char	*str;
 	int		max;
 
-	i = lenght(n);
+	i = 0;
+	max = 0;
+	if (n < 0)
+	{
+		n = -n;
+		i++;
+		max = 1;
+	}
+	i += lenght(n);
 	str = malloc(sizeof(char) * (i + 1));
 	if (str == NULL)
 		return (NULL);
