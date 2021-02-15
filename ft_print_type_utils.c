@@ -6,19 +6,19 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:08 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/13 15:11:59 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 17:12:39 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_add_before(char *str, char c, int len, int to_add)
+char		*ft_add_before(char *str, char c, int len, int to_add)
 {
 	char		*temp;
 	int			i;
 
 	if (!(temp = malloc(sizeof(char) * (len + to_add + 1))))
-		return (-1);
+		return (NULL);
 	i = -1;
 	while (++i < to_add)
 		temp[i] = c;
@@ -29,17 +29,16 @@ int		ft_add_before(char *str, char c, int len, int to_add)
 	}
 	temp[i] = '\0';
 	free(str);
-	str = temp;
-	return (len + to_add);
+	return (temp);
 }
 
-int		ft_add_after(char *str, char c, int width)
+char		*ft_add_after(char *str, char c, int width)
 {
 	char		*temp;
 	int			i;
 
 	if (!(temp = malloc(sizeof(char) * (width))))
-		return (-1);
+		return (NULL);
 	i = -1;
 	while (str[++i])
 		temp[i] = str[i];
@@ -48,6 +47,5 @@ int		ft_add_after(char *str, char c, int width)
 		temp[i] = c;
 	temp[i] = '\0';
 	free(str);
-	str = temp;
-	return (width);
+	return (temp);
 }

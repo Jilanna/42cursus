@@ -6,31 +6,34 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:10 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/13 15:50:20 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 17:34:19 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_print_nb(char *str, int len, t_flags *flags)
+char	*ft_print_nb(char *str, int len, t_flags *flags)
 {
 	if (flags->precision > len)
-		if ((len = ft_add_before(str, '0', len, flags->precision - len)) == -1)
-			return (-1);
+	{
+		if ((str = ft_add_before(str, '0', len, flags->precision - len)) == NULL)
+			return (NULL);
+		len = ft_strlen(str);
+	}
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)
-			len = ft_add_after(str, ' ', flags->width);
+			str = ft_add_after(str, ' ', flags->width);
 		else if ((flags->zero == 0) || (flags->zero == 1 
-			&& flags->precision != -1))
-			len = ft_add_before(str, ' ', len, (flags->width) - len);
+			&& flags->precision != -2))
+			str = ft_add_before(str, ' ', len, (flags->width) - len);
 		else
-			len = ft_add_before(str, '0', len, flags->width - len);
+			str = ft_add_before(str, '0', len, flags->width - len);
 	}
-	return (len);
+	return (str);
 }
 
-int		ft_print_str(char *str, int len, t_flags *flags)
+char	*ft_print_str(char *str, int len, t_flags *flags)
 {
 	if (flags->precision < len && flags->precision != -1)
 	{
@@ -40,35 +43,38 @@ int		ft_print_str(char *str, int len, t_flags *flags)
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)
-			len = ft_add_after(str, ' ', flags->width);
+			str = ft_add_after(str, ' ', flags->width);
 		else
-			len = ft_add_before(str, ' ', len, flags->width - len);
+			str = ft_add_before(str, ' ', len, flags->width - len);
 	}
-	return (len);
+	return (str);
 }
 
-int		ft_print_char(char *str, int len, t_flags *flags)
+char	*ft_print_char(char *str,  t_flags *flags)
 {
 	if (flags->width > 1)
 	{
 		if (flags->minus == 1)
-			len = ft_add_after(str, ' ', flags->width);
+			str = ft_add_after(str, ' ', flags->width);
 		else
-			len = ft_add_before(str, ' ', 1, flags->width - 1);
+			str = ft_add_before(str, ' ', 1, flags->width - 1);
 	}
-	return (len);
+	return (str);
 }
 
-int		ft_print_ptr(char *str, int len, t_flags *flags)
+char	*ft_print_ptr(char *str, int len, t_flags *flags)
 {
 	char		*temp;
 	int			n;
 
 	if (flags->precision > len)
-		if ((len = ft_add_before(str, '0', len, flags->precision - len)) == -1)
-			return (-1);
+	{
+		if ((str = ft_add_before(str, '0', len, flags->precision - len)) == NULL)
+			return (NULL);
+		len = ft_strlen(str);
+	}
 	if (!(temp = malloc(sizeof(char) * (len + 3))))
-		return (-1);
+		return (NULL);
 	str[0] = '0';
 	str[1] = 'x';
 	n = 1;
@@ -80,12 +86,12 @@ int		ft_print_ptr(char *str, int len, t_flags *flags)
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)
-			len = ft_add_after(str, ' ', flags->width);
+			temp = ft_add_after(temp, ' ', flags->width);
 		else if ((flags->zero == 0)
 			|| (flags->zero == 1 && flags->precision != -1))
-			len = ft_add_before(str, ' ', len, flags->width - len);
+			temp = ft_add_before(temp, ' ', len, flags->width - len);
 		else
-			len = ft_add_before(str, '0', len, flags->width - len);
+			temp = ft_add_before(temp, '0', len, flags->width - len);
 	}
-	return (len);
+	return (temp);
 }

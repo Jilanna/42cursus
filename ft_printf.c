@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:06 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/13 15:10:01 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 17:41:32 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,13 @@ void		ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-int		bob(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			out;
 
 	va_start(ap, format);
-	//printf("beftreatment\n");
 	out = ft_treatment(ap, format);
-	//printf("afttreatment\n");
 	va_end(ap);
 	return (out);
 }
@@ -45,10 +43,8 @@ int		ft_treatment(va_list ap, const char *format)
 		if (format[i] == '%')
 		{
 			i++;
-			//printf("avt flags%i\n", out);
 			if (ft_flags(flags, format, &i, ap) == -1)
 				return (-1);
-			//printf("avt printing, out = |%i|%i|\n", out, i);
 			out += ft_printing(flags, ap);
 		}
 		else

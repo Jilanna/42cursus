@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/13 15:11:27 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 17:28:42 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,15 @@ int		ft_printing(t_flags *flags, va_list ap)
 	len = (int)ft_strlen(str);
 	if ((flags->type == 'i') || (flags->type == 'd') || (flags->type == 'u')
 		|| (flags->type == 'x') || (flags->type == 'X'))
-		len = ft_print_nb(str, len, flags);
+		str = ft_print_nb(str, len, flags);
 	else if (flags->type == 's')
-		len = ft_print_str(str, len, flags);
+		str = ft_print_str(str, len, flags);
 	else if (flags->type == 'p')
-		len = ft_print_ptr(str, len, flags);
+		str = ft_print_ptr(str, len, flags);
 	else
-		len = ft_print_char(str, len, flags);
+		str = ft_print_char(str, flags);
+	if (str == NULL)
+		return (-1);
 	ft_putstr(str);
-	return (len);
+	return (ft_strlen(str));
 }

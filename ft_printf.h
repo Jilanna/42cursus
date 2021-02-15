@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:34:59 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/04 20:20:55 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 17:40:19 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_flags
 	char			type;
 }					t_flags;
 
-int		bob(const char *format, ...);
+int		ft_printf(const char *format, ...);
 void	ft_putchar_fd(char c, int fd);
 int		ft_treatment(va_list ap, const char *format);
 char	*ft_recup(t_flags *flags, va_list ap);
@@ -35,12 +35,12 @@ void	ft_flags_init(t_flags *flags);
 int		ft_flags_star(int *j, const char *format, int *i, va_list ap);
 int		ft_flags_length(const char *format, int *i, va_list ap);
 int		ft_flags(t_flags *flags, const char *format, int *i, va_list ap);
-int		ft_print_nb(char *str, int len, t_flags *flags);
-int		ft_print_str(char *str, int len, t_flags *flags);
-int		ft_print_char(char *str, int len, t_flags *flags);
-int		ft_print_ptr(char *str, int len, t_flags *flags);
-int		ft_add_before(char *str, char c, int len, int to_add);
-int		ft_add_after(char *str, char c, int width);
+char	*ft_print_nb(char *str, int len, t_flags *flags);
+char	*ft_print_str(char *str, int len, t_flags *flags);
+char	*ft_print_char(char *str, t_flags *flags);
+char	*ft_print_ptr(char *str, int len, t_flags *flags);
+char	*ft_add_before(char *str, char c, int len, int to_add);
+char	*ft_add_after(char *str, char c, int width);
 void	ft_putstr(char *s);
 size_t	ft_strlen(const char *str);
 int		ft_atoi(char *str);

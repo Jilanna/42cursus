@@ -1,4 +1,4 @@
-SRCS		= bob.c \
+SRCS		= ft_printf.c \
 			  ft_printing.c \
 			  ft_flags.c \
 			  ft_print_type.c \

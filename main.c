@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 13:43:48 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/13 15:49:30 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/15 18:39:53 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,21 @@ int		main(void)
 	int		vout;
 	int		*ptr = &i;
 
-	printf("1nico:\n");
-	out = bob("2coucou\n");
-	printf("3vrai:\n");
-	vout = printf("4coucou\n");
+	out = ft_printf("mine|%i|\n", i);
+	vout = printf("true|%i|\n", i);
 	printf("out = %i, vout = %i\n", out, vout);
-	printf("5nico:\n");
-	out = bob("6ici|%i|\n", i);
-	out = bob("6ici|%8i|\n", i);
-	out = bob("6ici|%-8i|\n", i);
-	out = bob("6ici|%08i|\n", i);
-	out = bob("6ici|%.8i|\n", i);
-	out = bob("6ici|%010.8i|\n", i);
+	out = ft_printf("-8ici|%-8i|\n", i);
+	out = ft_printf("08ici|%08i|\n", i);
+	out = ft_printf(".8ici|%.8i|\n", i);
+	out = ft_printf("010.8ici|%010.8i|\n", i);
 	printf("7vrai:\n");
 	vout = printf("8ici|%i|\n", i);
 	vout = printf("8ici|%8i|\n", i);
-	vout = printf("8ici|%-8i|\n", i);
-	vout = printf("8ici|%08i|\n", i);
-	vout = printf("8ici|%.8i|\n", i);
-	vout = printf("8ici|%010.8i|\n", i);
-	printf("out = %i, vout = %i\n", out, vout);
+	vout = printf("-8ici|%-8i|\n", i);
+	vout = printf("08ici|%08i|\n", i);
+	vout = printf(".8ici|%.8i|\n", i);
+	vout = printf("010.8ici|%010.8i|\n", i);
 
+	printf("out = %i, vout = %i\n", out, vout);
 
 }
