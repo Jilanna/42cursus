@@ -22,21 +22,22 @@ int		main(void)
 	int		vout;
 	int		*ptr = &i;
 
-	out = ft_printf("mine|%i|\n", i);
-	vout = printf("true|%i|\n", i);
+	out = ft_printf("mine|%i|%8i|%-8i|%08i|%.8i|%10.8i|\n", i, i, i, i, i, i);
+	vout = printf("true|%i|%8i|%-8i|%08i|%.8i|%10.8i|\n", i, i, i, i, i, i);
 	printf("out = %i, vout = %i\n", out, vout);
-	out = ft_printf("-8ici|%-8i|\n", i);
-	out = ft_printf("08ici|%08i|\n", i);
-	out = ft_printf(".8ici|%.8i|\n", i);
-	out = ft_printf("010.8ici|%010.8i|\n", i);
-	printf("7vrai:\n");
-	vout = printf("8ici|%i|\n", i);
-	vout = printf("8ici|%8i|\n", i);
-	vout = printf("-8ici|%-8i|\n", i);
-	vout = printf("08ici|%08i|\n", i);
-	vout = printf(".8ici|%.8i|\n", i);
-	vout = printf("010.8ici|%010.8i|\n", i);
-
+	out = ft_printf("mine|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	vout = printf("true|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
 	printf("out = %i, vout = %i\n", out, vout);
-
+	out = ft_printf("mine|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	vout = printf("true|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	printf("out = %i, vout = %i\n", out, vout);
+	out = ft_printf("mine|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	vout = printf("true|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	printf("out = %i, vout = %i\n", out, vout);
+	out = ft_printf("mine|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	vout = printf("true|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	printf("out = %i, vout = %i\n", out, vout);
+	out = ft_printf("mine|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	vout = printf("true|%c|%8c|%-8c|%8c|%.8c|%10.8c|\n", c, c, c, c, c, c);
+	printf("out = %i, vout = %i\n", out, vout);
 }
