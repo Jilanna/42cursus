@@ -27,7 +27,7 @@ INC			= ./
 all:		${NAME}
 
 .c.o:		${SRCS}
-			${CC} ${CFLAGS}  -o ${<:.c=.o} -c $< -I
+			${CC} ${CFLAGS}  -o ${<:.c=.o} -c $< -I {INC}
 
 ${NAME}:	${OBJS}
 			ar rcs ${NAME} $?

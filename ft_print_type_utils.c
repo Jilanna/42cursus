@@ -6,11 +6,11 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:08 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/15 18:50:45 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/19 13:22:33 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdlib.h>
 
 char		*ft_add_before(char *str, char c, int len, int to_add)
 {

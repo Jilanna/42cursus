@@ -6,11 +6,11 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:43:33 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/15 21:29:35 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/19 13:47:04 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../ft_printf.h"
 
 static int		invers(int n, int i)
 {
@@ -44,16 +44,15 @@ char			*ft_itoa(int n)
 	int		i;
 	char	*str;
 	int		max;
+	int		neg;
 
-	i = 0;
-	max = 0;
+	neg = 0;
 	if (n < 0)
 	{
 		n = -n;
-		i++;
-		max = 1;
+		neg = 1;
 	}
-	i += lenght(n);
+	i = lenght(n);
 	str = malloc(sizeof(char) * (i + 1));
 	if (str == NULL)
 		return (NULL);
@@ -67,5 +66,7 @@ char			*ft_itoa(int n)
 		i++;
 	}
 	str[max] = '\0';
+	if (neg == 1)
+		str = ft_add_before(str, '-', max, 1);
 	return (str);
 }
