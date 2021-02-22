@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/19 14:29:48 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/22 16:45:34 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_recup(t_flags *flags, va_list ap)
 	else if (flags->type == 'u' || flags->type == 'x' || flags->type == 'X')
 		str = ft_utoa(va_arg(ap, unsigned int), flags->type);
 	else if (flags->type == 's')
-		str = (va_arg(ap, char *));
+		str = ft_strdup(va_arg(ap, char *));
 	else if (flags->type == 'p')
 		str = ft_ptrtoa(va_arg(ap, void *));
 	else

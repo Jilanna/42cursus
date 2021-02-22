@@ -11,6 +11,7 @@ SRCS		= ft_printf.c \
 			  convert/ft_utoa.c \
 			  libft/ft_putstr.c \
 			  libft/ft_strlen.c \
+			  libft/ft_strdup.c \
 
 OBJS		= ${SRCS:.c=.o}
 
