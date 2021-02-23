@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:10 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/22 16:40:50 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 11:06:15 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,23 @@
 
 char	*ft_print_nb(char *str, int len, t_flags *flags)
 {
+	int	neg;
+
+	neg = 0;
+	if (str[0] == '-')
+	{
+		neg = 1;
+		str = ft_delminus(str);
+	}
 	if (flags->precision > len)
 	{
 		if ((str = ft_add_before(str, '0', len, flags->precision - len)) == NULL)
 			return (NULL);
-		len = ft_strlen(str);
 	}
+	if (neg == 1 && flags->zero == 0)
+		if ((str = ft_add_before(str, '-', ft_strlen(str), 1)) == NULL)
+			return (NULL);
+	len = ft_strlen(str);
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)

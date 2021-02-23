@@ -6,29 +6,11 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/22 16:45:34 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 09:59:17 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*ft_delminus(char *str)
-{
-	char			*new;
-	int				i;
-
-	if (!(new = malloc(sizeof(char) * ft_strlen(str))))
-		return (NULL);
-	i = 1;
-	while (str[i])
-	{
-		new[i - 1] = str[i];
-		i++;
-	}
-	new[i] = '\0';
-	free(str);
-	return (new);
-}
 
 char	*ft_recup(t_flags *flags, va_list ap)
 {

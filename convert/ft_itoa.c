@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:43:33 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/19 13:47:04 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 10:04:14 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,27 @@ char			*ft_itoa(int n)
 {
 	int		i;
 	char	*str;
-	int		max;
-	int		neg;
+	int		var[2];
 
-	neg = 0;
+	var[1] = 0;
 	if (n < 0)
 	{
 		n = -n;
-		neg = 1;
+		var[1] = 1;
 	}
 	i = lenght(n);
-	str = malloc(sizeof(char) * (i + 1));
-	if (str == NULL)
+	if (!(str = malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	n = invers(n, i);
-	max = i;
-	i = 0;
-	while (i < max)
+	var[0] = i;
+	i = -1;
+	while (++i < var[0])
 	{
 		str[i] = (n % 10) + 48;
 		n = n / 10;
-		i++;
 	}
-	str[max] = '\0';
-	if (neg == 1)
-		str = ft_add_before(str, '-', max, 1);
+	str[var[0]] = '\0';
+	if (var[1] == 1)
+		str = ft_add_before(str, '-', var[0], 1);
 	return (str);
 }
