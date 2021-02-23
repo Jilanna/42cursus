@@ -19,6 +19,7 @@ void	ft_flags_init(t_flags *flags)
 	(*flags).width = -1;
 	(*flags).precision = -2;
 	(*flags).type = 'b';
+	(*flags).other = 0;
 }
 
 int		ft_flags_star(int *j, const char *format, int *i, va_list ap)

@@ -17,6 +17,8 @@ char		*ft_delminus(char *str)
 	char		*new;
 	int			i;
 
+	if (str[0] != '-')
+		return (str);
 	if (!(new = malloc(sizeof(char) * ft_strlen(str))))
 		return (NULL);
 	i = 1;
