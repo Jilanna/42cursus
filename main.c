@@ -22,6 +22,9 @@ int		main(void)
 	int		vout;
 	int		*ptr = &i;
 
+	out = ft_printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 6, 2, 102, 10, 21, -101));
+	vout = printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 6, 2, 102, 10, 21, -101));
+	printf("out = %i, vout = %i\n", out, vout);
 	out = ft_printf("mine|%i|%8i|%-8i|%08i|%.8i|%10.8i|\n", i, i, i, i, i, i);
 	vout = printf("true|%i|%8i|%-8i|%08i|%.8i|%10.8i|\n", i, i, i, i, i, i);
 	printf("out = %i, vout = %i\n", out, vout);
