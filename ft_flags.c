@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:23:21 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 16:33:40 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 17:46:02 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_flags_star(int *j, const char *f, int *i, va_list ap, t_flags *flags)
 	{
 		(*j) = va_arg(ap, int);
 		(*i)++;
-		if ((*j) < 0 && flags->width == -1)
+		if ((*j) < 0 && flags->width == -1 && flags->zero == 0)
 		{
 			(*j) *= -1;
 			flags->minus = 1;
