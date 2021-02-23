@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:34:59 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 17:30:04 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 23:27:52 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ft_printf(const char *format, ...);
 void	ft_putchar_fd(char c, int fd);
 int		ft_treatment(va_list ap, const char *format);
 char	*ft_recup(t_flags *flags, va_list ap);
+char	*ft_callprints(t_flags *flags, va_list ap);
 int		ft_printing(t_flags *flags, va_list ap);
 void	ft_flags_init(t_flags *flags);
 int		ft_flags_star(int *j, const char *f, int *i, va_list ap, t_flags *flags);

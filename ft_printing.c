@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 18:36:35 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 23:45:18 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ char	*ft_recup(t_flags *flags, va_list ap)
 	return (str);
 }
 
-int		ft_printing(t_flags *flags, va_list ap)
+char	*ft_callprints(t_flags *flags, va_list ap)
 {
 	int		len;
 	char	*str;
 
 	if ((str = ft_recup(flags, ap)) == NULL)
-		return (-1);
+		return (NULL);
 	len = (int)ft_strlen(str);
 	if ((flags->type == 'i') || (flags->type == 'd') || (flags->type == 'u')
 		|| (flags->type == 'x') || (flags->type == 'X'))
@@ -68,11 +68,29 @@ int		ft_printing(t_flags *flags, va_list ap)
 		str = ft_print_ptr(str, len, flags);
 	else
 		str = ft_print_char(str, flags);
-	str = ft_special(str, flags);
 	if (str == NULL)
+		return (NULL);
+	str = ft_special(str, flags);
+	return (str);
+}
+
+int		ft_printing(t_flags *flags, va_list ap)
+{
+	char	*str;
+	int		len;
+
+	if ((str = ft_callprints(flags, ap)) == NULL)
 		return (-1);
-	ft_putstr(str);
 	len = ft_strlen(str);
+	if (flags->type != 'c')
+		ft_putstr(str);
+	else
+	{
+		len = -1;
+		while (++len < flags->width)
+			write(1, &(str[len]), 1);
+		len = flags->width;
+	}
 	free(str);
 	return (len);
 }

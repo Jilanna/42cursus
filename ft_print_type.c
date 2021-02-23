@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:10 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 18:28:14 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 23:43:32 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ char	*ft_print_char(char *str,  t_flags *flags)
 		else
 			str = ft_add_before(str, ' ', 1, flags->width - 1);
 	}
+	else
+		flags->width = 1;
 	return (str);
 }
 
