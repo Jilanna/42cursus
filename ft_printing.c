@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 16:32:13 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 18:36:35 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char	*ft_recup(t_flags *flags, va_list ap)
 		str[1] = '\0';
 		if (flags->type == 'c')
 			str[0] = va_arg(ap, int);
+		if (str[0] == 0)
+			return (NULL);
 	}
 	return (str);
 }

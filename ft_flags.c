@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:23:21 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 17:46:02 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 18:11:03 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int		ft_flags(t_flags *flags, const char *format, int *i, va_list ap)
 		(*i)++;
 	if ((flags->width = ft_flags_length(format, i, ap, flags)) == -1)
 		return (-1);
+	if (flags->minus == 1)
+		flags->zero = 0;
 	if (format[*i] == '.')
 	{
 		(*i)++;
