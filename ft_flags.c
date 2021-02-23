@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:23:21 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/13 15:10:36 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 16:33:40 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,5 @@ int		ft_flags(t_flags *flags, const char *format, int *i, va_list ap)
 		&& (flags->type != 's') && (flags->type != 'p')
 		&& (flags->type != '%'))
 		return (-1);
-	//ft_imprflags(flags);
 	return (0);
 }

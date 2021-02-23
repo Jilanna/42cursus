@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 13:43:48 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/19 13:49:04 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 15:33:14 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int		main(void)
 {
-	int		i = -12345;
+	int		i = 12345;
 	char	c = 'g';
 	int		out;
 	int		vout;
@@ -28,7 +28,7 @@ int		main(void)
 	out = ft_printf("mine|%c|%8c|%-8c|%8c|\n", c, c, c, c);
 	vout = printf("true|%c|%8c|%-8c|%8c|\n", c, c, c, c);
 	printf("out = %i, vout = %i\n", out, vout);
-	out = ft_printf("mine|%p|%8p|%-8p|%8p|%.8p|%10.8p|\n", ptr, ptr, ptr, ptr, ptr, ptr);
-	vout = printf("true|%p|%8p|%-8p|%8p|%.8p|%10.8p|\n", ptr, ptr, ptr, ptr, ptr, ptr);
+	out = ft_printf("mine|%p|%8p|%-8p|%8p|\n", ptr, ptr, ptr, ptr);
+	vout = printf("true|%p|%8p|%-8p|%8p|\n", ptr, ptr, ptr, ptr);
 	printf("out = %i, vout = %i\n", out, vout);
 }

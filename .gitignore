@@ -1,5 +1,5 @@
 .vscode/*
-.printfTester/*
+printfTester/*
 *.o
 a.out
 libftprintf.a

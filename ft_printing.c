@@ -6,11 +6,24 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 09:59:17 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 16:32:13 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*ft_special(char *str, t_flags *flags)
+{
+	if (flags->type != 's' && flags->type != 'p' && flags->type != 'c' 
+		&& ft_strlen(str) == 1 && str[0] == '0' && flags->precision == 0)
+	{
+		free(str);
+		if (!(str = malloc(sizeof(char))))
+			return (NULL);
+		str[0] = '\0';
+	}
+	return (str);
+}
 
 char	*ft_recup(t_flags *flags, va_list ap)
 {
@@ -53,6 +66,7 @@ int		ft_printing(t_flags *flags, va_list ap)
 		str = ft_print_ptr(str, len, flags);
 	else
 		str = ft_print_char(str, flags);
+	str = ft_special(str, flags);
 	if (str == NULL)
 		return (-1);
 	ft_putstr(str);
