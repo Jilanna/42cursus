@@ -6,27 +6,31 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:43:33 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 10:04:14 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 19:13:19 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int		invers(int n, int i)
+static char		*invers(char *str, int len)
 {
-	int		nb;
+	int		i;
+	char	*out;
 
-	nb = 0;
-	while (i > 0)
+	if (!(out = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (len - i - 1 >= 0)
 	{
-		nb = nb * 10 + (n % 10);
-		n = n / 10;
-		i--;
+		out[i] = str[len -i - 1];
+		i++;
 	}
-	return (nb);
+	out[len] = '\0';
+	free(str);
+	return (out);
 }
 
-static int		lenght(int nb)
+static int				lenght(unsigned int nb)
 {
 	int		i;
 
@@ -39,31 +43,45 @@ static int		lenght(int nb)
 	return (i);
 }
 
-char			*ft_itoa(int n)
+static char				*tostr(unsigned int nb, int i)
 {
-	int		i;
-	char	*str;
-	int		var[2];
+	char			*str;
+	int				max;
 
-	var[1] = 0;
-	if (n < 0)
-	{
-		n = -n;
-		var[1] = 1;
-	}
-	i = lenght(n);
 	if (!(str = malloc(sizeof(char) * (i + 1))))
 		return (NULL);
-	n = invers(n, i);
-	var[0] = i;
+	max = i;
 	i = -1;
-	while (++i < var[0])
+	while (++i < max)
 	{
-		str[i] = (n % 10) + 48;
-		n = n / 10;
+		str[i] = (nb % 10) + 48;
+		nb = nb / 10;
 	}
-	str[var[0]] = '\0';
-	if (var[1] == 1)
-		str = ft_add_before(str, '-', var[0], 1);
+	str[max] = '\0';
+	return (str);
+}
+
+char					*ft_itoa(int n)
+{
+	int				neg;
+	unsigned int	nb;
+	char			*str;
+	int				len;
+
+	neg = 0;
+	if (n < 0)
+	{
+		nb = (unsigned int)-n;
+		neg = 1;
+	}
+	else
+		nb = (unsigned int)n;
+	len = lenght(nb);
+	if (!(str = tostr(nb, len)))
+		return (NULL);
+	if (!(str = invers(str, len)))
+		return (NULL);
+	if (neg == 1)
+		str = ft_add_before(str, '-', len, 1);
 	return (str);
 }
