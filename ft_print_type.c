@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:10 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 23:43:32 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 13:14:14 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_print_nb(char *str, int len, t_flags *flags)
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)
-			str = ft_add_after(str, ' ', flags->width);
+			str = ft_add_after(str, ' ', len, flags->width);
 		else if ((flags->zero == 0) || (flags->zero == 1 
 			&& flags->precision != -2))
 			str = ft_add_before(str, ' ', len, (flags->width) - len);
@@ -53,15 +53,15 @@ char	*ft_print_nb(char *str, int len, t_flags *flags)
 
 char	*ft_print_str(char *str, int len, t_flags *flags)
 {
-	if (flags->precision < len && flags->precision != -1)
+	if (flags->precision < len && flags->precision > -1)
 	{
-		str[flags->precision] = '\n';
+		str[flags->precision] = '\0';
 		len = flags->precision;
 	}
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)
-			str = ft_add_after(str, ' ', flags->width);
+			str = ft_add_after(str, ' ', len, flags->width);
 		else
 			str = ft_add_before(str, ' ', len, flags->width - len);
 	}
@@ -73,7 +73,7 @@ char	*ft_print_char(char *str,  t_flags *flags)
 	if (flags->width > 1)
 	{
 		if (flags->minus == 1)
-			str = ft_add_after(str, ' ', flags->width);
+			str = ft_add_after(str, ' ', 1, flags->width + 1);
 		else
 			str = ft_add_before(str, ' ', 1, flags->width - 1);
 	}
@@ -106,7 +106,7 @@ char	*ft_print_ptr(char *str, int len, t_flags *flags)
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)
-			temp = ft_add_after(temp, ' ', flags->width);
+			temp = ft_add_after(temp, ' ', len, flags->width);
 		else if ((flags->zero == 0)
 			|| (flags->zero == 1 && flags->precision != -1))
 			temp = ft_add_before(temp, ' ', len, flags->width - len);

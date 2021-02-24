@@ -6,7 +6,7 @@
 /*   By: nvu </var/mail/nvu>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 16:54:18 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/22 17:05:12 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 09:45:23 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strdup(char *src)
 	size_t		i;
 	size_t		src_len;
 
+	if (!src)
+		return (NULL);
 	src_len = ft_strlen(src);
 	if (!(ptr = malloc(sizeof(char) * (src_len + 1))))
 		return (NULL);

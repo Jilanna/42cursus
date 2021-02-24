@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:23:21 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 18:11:03 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 14:42:41 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		ft_flags_length(const char *format, int *i, va_list ap, t_flags *flags)
 	temp[j] = '\0';
 	j = ft_atoi(temp);
 	free(temp);
+	flags->other = 3;
 	return (j);
 }
 
@@ -77,13 +78,21 @@ int		ft_flags(t_flags *flags, const char *format, int *i, va_list ap)
 		(*i)++;
 	if ((flags->width = ft_flags_length(format, i, ap, flags)) == -1)
 		return (-1);
-	if (flags->minus == 1)
+	if (flags->other == 3 && flags->width < 0)
+	{
+		flags->width *= -1;
+		flags->other = 0;
+		flags->minus = 1;
 		flags->zero = 0;
+	}
 	if (format[*i] == '.')
 	{
 		(*i)++;
 		if ((flags->precision = ft_flags_length(format, i, ap, flags)) == -1)
 			return (-1);
+		flags->other = 0;
+		if (flags->precision < 0)
+			flags->precision = 0;
 	}
 	flags->type = format[*i];
 	if ((flags->type != 'i') && (flags->type != 'd') && (flags->type != 'u')

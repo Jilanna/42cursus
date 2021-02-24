@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:08 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 11:01:44 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 08:47:10 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char		*ft_add_before(char *str, char c, int len, int to_add)
 	return (temp);
 }
 
-char		*ft_add_after(char *str, char c, int width)
+char		*ft_add_after(char *str, char c, int len, int width)
 {
 	char		*temp;
 	int			i;
@@ -60,7 +60,7 @@ char		*ft_add_after(char *str, char c, int width)
 	if (!(temp = malloc(sizeof(char) * (width))))
 		return (NULL);
 	i = -1;
-	while (str[++i])
+	while (++i < len)
 		temp[i] = str[i];
 	i--;
 	while (++i < width)

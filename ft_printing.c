@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 23:45:18 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 14:47:09 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ char	*ft_recup(t_flags *flags, va_list ap)
 		str[1] = '\0';
 		if (flags->type == 'c')
 			str[0] = va_arg(ap, int);
-		if (str[0] == 0)
-			return (NULL);
 	}
 	return (str);
 }
@@ -58,6 +56,7 @@ char	*ft_callprints(t_flags *flags, va_list ap)
 
 	if ((str = ft_recup(flags, ap)) == NULL)
 		return (NULL);
+	printf("ici\n");
 	len = (int)ft_strlen(str);
 	if ((flags->type == 'i') || (flags->type == 'd') || (flags->type == 'u')
 		|| (flags->type == 'x') || (flags->type == 'X'))
@@ -88,7 +87,7 @@ int		ft_printing(t_flags *flags, va_list ap)
 	{
 		len = -1;
 		while (++len < flags->width)
-			write(1, &(str[len]), 1);
+			write(1, &str[len], 1);
 		len = flags->width;
 	}
 	free(str);

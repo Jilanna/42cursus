@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:34:59 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/23 23:27:52 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 08:35:23 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_print_char(char *str, t_flags *flags);
 char	*ft_print_ptr(char *str, int len, t_flags *flags);
 char	*ft_delminus(char *str);
 char	*ft_add_before(char *str, char c, int len, int to_add);
-char	*ft_add_after(char *str, char c, int width);
+char	*ft_add_after(char *str, char c, int len, int width);
 void	ft_putstr(char *s);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(char *src);
