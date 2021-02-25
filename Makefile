@@ -1,7 +1,8 @@
 SRCS		= ft_printf.c \
 			  ft_printing.c \
 			  ft_flags.c \
-			  ft_print_type.c \
+			  ft_print_type_nb.c \
+			  ft_print_type_else.c \
 			  ft_print_type_utils.c \
 			  convert/ft_atoi.c \
 			  convert/ft_convert_base.c \

@@ -59,9 +59,10 @@ char	*ft_callprints(t_flags *flags, va_list ap)
 	len = (int)ft_strlen(str);
 	if ((str = ft_special(str, flags)) == NULL)
 		return (NULL);
-	if ((flags->type == 'i') || (flags->type == 'd') || (flags->type == 'u')
-		|| (flags->type == 'x') || (flags->type == 'X'))
+	if ((flags->type == 'i') || (flags->type == 'd'))
 		str = ft_print_nb(str, len, flags);
+	else if ((flags->type == 'u') || (flags->type == 'x') || (flags->type == 'X'))
+		str = ft_print_un(str, len, flags);
 	else if (flags->type == 's')
 		str = ft_print_str(str, len, flags);
 	else if (flags->type == 'p')
