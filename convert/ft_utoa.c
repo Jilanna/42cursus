@@ -12,17 +12,22 @@
 
 #include "../ft_printf.h"
 
-static unsigned int		invers(unsigned int n, long i)
+static char		*invers(char *str, int len)
 {
-	unsigned long long	nb;
+	int		i;
+	char	*out;
 
-	nb = 0;
-	while (i > 0)
+	if (!(out = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (len - i - 1 >= 0)
 	{
-		nb = nb * 10 + (n % 10);
-		i--;
+		out[i] = str[len -i - 1];
+		i++;
 	}
-	return (nb);
+	out[len] = '\0';
+	free(str);
+	return (out);
 }
 
 static unsigned int		lenght(unsigned int nb)
@@ -38,25 +43,35 @@ static unsigned int		lenght(unsigned int nb)
 	return (i);
 }
 
-char					*ft_utoa(unsigned int n, char type)
+static char				*tostr(unsigned int nb, int i)
 {
-	long		i;
-	char		*str;
-	char		*cvrt;
-	long		max;
+	char			*str;
+	int				max;
 
-	i = lenght(n);
-	if (!(str = malloc(sizeof(char) + (i + 1))))
+	if (!(str = malloc(sizeof(char) * (i + 1))))
 		return (NULL);
-	n = invers(n, i);
 	max = i;
 	i = -1;
 	while (++i < max)
 	{
-		str[i] = (n % 10) + 48;
-		n = n / 10;
+		str[i] = (nb % 10) + 48;
+		nb = nb / 10;
 	}
-	str[max] = 0;
+	str[max] = '\0';
+	return (str);
+}
+
+char					*ft_utoa(unsigned int n, char type)
+{
+	int		len;
+	char	*str;
+	char	*cvrt;
+
+	len = lenght(n);
+	if (!(str = tostr(n, len)))
+		return (NULL);
+	if (!(str = invers(str, len)))
+		return (NULL);
 	if (type == 'u')
 		return(str);
 	else if (type == 'x')
@@ -66,4 +81,3 @@ char					*ft_utoa(unsigned int n, char type)
 	free(str);
 	return (cvrt);
 }
-
