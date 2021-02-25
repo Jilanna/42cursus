@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:10 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/25 08:27:37 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 09:30:15 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_print_nb_width(char *str, int len, t_flags *flags)
 {
+	printf("begin width\n");
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)
@@ -29,6 +30,7 @@ void	ft_print_nb_width(char *str, int len, t_flags *flags)
 				str = ft_add_before(str, '-', ft_strlen(str), 1);
 		}
 	}
+	printf("end width\n");
 }
 
 char	*ft_print_nb(char *str, int len, t_flags *flags)
@@ -57,11 +59,13 @@ char	*ft_print_nb(char *str, int len, t_flags *flags)
 
 char	*ft_print_un(char *str, int len, t_flags *flags)
 {
+	printf("bef print\n");
 	if (flags->precision > len)
 	{
 		if ((str = ft_add_before(str, '0', len, flags->precision - len)) == NULL)
 			return (NULL);
 	}
+	printf("aft precision\n");
 	ft_print_nb_width(str, ft_strlen(str), flags);
 	return (str);
 }

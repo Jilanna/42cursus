@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 11:55:24 by nvu               #+#    #+#             */
-/*   Updated: 2021/01/28 14:19:23 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 09:19:41 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,5 @@ unsigned long	ft_savenbr(char c, char *base, unsigned long sortie)
 char			*ft_alloc(char *nbrf)
 {
 	nbrf = malloc(sizeof(char) * 32 + 2);
-	if (nbrf == NULL)
-		return (NULL);
 	return (nbrf);
 }

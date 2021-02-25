@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:47:36 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/03 13:26:35 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 09:12:01 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ char					*ft_utoa(unsigned int n, char type)
 	long		max;
 
 	i = lenght(n);
-	str = malloc(i + 1);
-	if (str == NULL)
+	if (!(str = malloc(sizeof(char) + (i + 1))))
 		return (NULL);
 	n = invers(n, i);
 	max = i;
