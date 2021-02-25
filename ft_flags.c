@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:23:21 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/24 17:42:48 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 07:54:16 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_flags_length(const char *format, int *i, va_list ap, t_flags *flags)
 	if (j == 0)
 		return (0);
 	if (!(temp = malloc(sizeof(char) * (j + 1))))
-		return (-1);
+		return (flags->other = -1);
 	(*i) = (*i) - j;
 	j = 0;
 	while (format[*i] >= '0' && format[*i] <= '9')
@@ -80,7 +80,8 @@ int		ft_flags(t_flags *flags, const char *format, int *i, va_list ap)
 		flags->minus = 1;
 		(*i)++;
 	}
-	if ((flags->width = ft_flags_length(format, i, ap, flags)) == -1)
+	flags->width = ft_flags_length(format, i, ap, flags);
+	if (flags->other == -1)
 		return (-1);
 	if (flags->other == 3 && flags->width < 0)
 	{
@@ -92,7 +93,8 @@ int		ft_flags(t_flags *flags, const char *format, int *i, va_list ap)
 	if (format[*i] == '.')
 	{
 		(*i)++;
-		if ((flags->precision = ft_flags_length(format, i, ap, flags)) == -1)
+		flags->precision = ft_flags_length(format, i, ap, flags);
+		if (flags->other == -1)
 			return (-1);
 		flags->other = 0;
 	}
