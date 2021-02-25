@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:23:21 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/25 07:54:16 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 17:34:21 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,24 +62,25 @@ int		ft_flags_length(const char *format, int *i, va_list ap, t_flags *flags)
 	return (j);
 }
 
+void	ft_flags_mz(t_flags *flags, const char *format, int *i)
+{
+	while (format[*i] == '-' || format[*i] == '0')
+	{
+		if (format[*i] == '0')
+			flags->zero = 1;
+		else
+		{
+			flags->minus = 1;
+			flags->zero = 0;
+		}
+		(*i)++;
+	}
+}
+
 int		ft_flags(t_flags *flags, const char *format, int *i, va_list ap)
 {
 	ft_flags_init(flags);
-	if (format[*i] == '-')
-	{
-		flags->minus = 1;
-		(*i)++;
-	}
-	if (format[*i] == '0')
-		flags->zero = 1;
-	if (flags->zero == 1)
-		(*i)++;
-	if (format[*i] == '-')
-	{
-		flags->zero = 0;
-		flags->minus = 1;
-		(*i)++;
-	}
+	ft_flags_mz(flags, format, i);
 	flags->width = ft_flags_length(format, i, ap, flags);
 	if (flags->other == -1)
 		return (-1);
@@ -96,6 +97,8 @@ int		ft_flags(t_flags *flags, const char *format, int *i, va_list ap)
 		flags->precision = ft_flags_length(format, i, ap, flags);
 		if (flags->other == -1)
 			return (-1);
+		if (flags->other == 3 && flags->precision < 0)
+			flags->precision = -2;
 		flags->other = 0;
 	}
 	flags->type = format[*i];

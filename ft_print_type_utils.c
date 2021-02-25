@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:08 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/24 08:47:10 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 17:40:49 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char		*ft_add_after(char *str, char c, int len, int width)
 	char		*temp;
 	int			i;
 
-	if (!(temp = malloc(sizeof(char) * (width))))
+	if (!(temp = malloc(sizeof(char) * (width + 1))))
 		return (NULL);
 	i = -1;
 	while (++i < len)
