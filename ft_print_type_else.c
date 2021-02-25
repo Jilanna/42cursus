@@ -31,7 +31,7 @@ char	*ft_print_char(char *str,  t_flags *flags)
 	return (str);
 }
 
-void	ft_print_ptr2(char *temp, int len, t_flags *flags)
+char	*ft_print_ptr2(char *temp, int len, t_flags *flags)
 {
 	if (flags->width > len)
 	{
@@ -43,6 +43,7 @@ void	ft_print_ptr2(char *temp, int len, t_flags *flags)
 		else
 			temp = ft_add_before(temp, '0', len, flags->width - len);
 	}
+	return (temp);
 }
 
 char	*ft_print_ptr(char *str, int len, t_flags *flags)
@@ -65,6 +66,6 @@ char	*ft_print_ptr(char *str, int len, t_flags *flags)
 		temp[n] = str[n - 2];
 	temp[n] = '\0';
 	free(str);
-	ft_print_ptr2(temp, len + 2, flags);
+	temp = ft_print_ptr2(temp, len + 2, flags);
 	return (temp);
 }

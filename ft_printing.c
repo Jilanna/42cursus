@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/25 09:31:51 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/02/25 09:45:54 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ int		ft_printing(t_flags *flags, va_list ap)
 			write(1, &str[len], 1);
 		len = flags->width;
 	}
-	printf("bef free\n");
+//	printf("bef free\n");
 	free(str);
-	printf("aft free\n");
+//	printf("aft free\n");
 	return (len);
 }
