@@ -1,6 +1,8 @@
 .vscode/*
 printfTester/*
+printfTester
 42TESTERS-PRINTF/*
+42TESTERS-PRINTF
 *.o
 a.out
 libftprintf.a
