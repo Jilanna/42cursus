@@ -6,19 +6,11 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 11:07:30 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/25 09:20:20 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/03/01 09:52:36 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-int				ft_strlen_test(char *str);
-void			ft_forward(char *nbr, unsigned long *i, char *nbrf,
-		unsigned long *j);
-int				ft_is_in_base(char c, char *base);
-unsigned long	ft_savenbr(char c, char *base, unsigned long sortie);
-char			*ft_alloc(char *nbrf);
+#include "../ft_printf.h"
 
 void			ft_nbr_to(unsigned long nb, char *base, char *nbrf,
 		unsigned long *j)

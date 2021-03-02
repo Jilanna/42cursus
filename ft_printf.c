@@ -6,13 +6,13 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:35:06 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/25 18:14:36 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/03/01 09:09:55 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
@@ -54,6 +54,5 @@ int		ft_treatment(va_list ap, const char *format)
 		}
 	}
 	free(flags);
-	flags = NULL;
 	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:28:29 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/26 07:32:46 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/03/01 09:08:42 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_special(char *str, t_flags *flags)
 {
-	if (flags->type != 's' && flags->type != 'p' && flags->type != 'c' 
+	if (flags->type != 's' && flags->type != 'p' && flags->type != 'c'
 		&& ft_strlen(str) == 1 && str[0] == '0' && flags->precision == 0)
 	{
 		free(str);
@@ -61,7 +61,8 @@ char	*ft_callprints(t_flags *flags, va_list ap)
 		return (NULL);
 	if ((flags->type == 'i') || (flags->type == 'd'))
 		str = ft_print_nb(str, len, flags);
-	else if ((flags->type == 'u') || (flags->type == 'x') || (flags->type == 'X'))
+	else if ((flags->type == 'u') || (flags->type == 'x')
+			|| (flags->type == 'X'))
 		str = ft_print_un(str, len, flags);
 	else if (flags->type == 's')
 		str = ft_print_str(str, len, flags);

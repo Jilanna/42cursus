@@ -6,13 +6,13 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:43:33 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/26 12:03:04 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/03/01 09:03:13 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static char		*invers(char *str, int len)
+static char				*invers(char *str, int len)
 {
 	int		i;
 	char	*out;
@@ -22,7 +22,7 @@ static char		*invers(char *str, int len)
 	i = 0;
 	while (len - i - 1 >= 0)
 	{
-		out[i] = str[len -i - 1];
+		out[i] = str[len - i - 1];
 		i++;
 	}
 	out[len] = '\0';

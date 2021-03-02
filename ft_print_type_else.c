@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_type_else.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/01 09:04:51 by nvu               #+#    #+#             */
+/*   Updated: 2021/03/01 09:07:30 by nvu              ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 char	*ft_print_str(char *str, int len, t_flags *flags)
@@ -17,7 +29,7 @@ char	*ft_print_str(char *str, int len, t_flags *flags)
 	return (str);
 }
 
-char	*ft_print_char(char *str,  t_flags *flags)
+char	*ft_print_char(char *str, t_flags *flags)
 {
 	if (flags->width > 1)
 	{
@@ -53,7 +65,8 @@ char	*ft_print_ptr(char *str, int len, t_flags *flags)
 
 	if (flags->precision > len)
 	{
-		if ((str = ft_add_before(str, '0', len, flags->precision - len)) == NULL)
+		if ((str = ft_add_before(str, '0', len,
+			flags->precision - len)) == NULL)
 			return (NULL);
 		len = ft_strlen(str);
 	}

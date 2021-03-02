@@ -6,7 +6,7 @@
 /*   By: nvu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 14:44:55 by nvu               #+#    #+#             */
-/*   Updated: 2021/02/24 11:18:45 by nvu              ###   ########lyon.fr   */
+/*   Updated: 2021/03/01 09:53:29 by nvu              ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,13 @@ char					*ft_ptrtoa(void *ptr)
 	unsigned long	n;
 
 	n = (unsigned long)ptr;
-//	printf("%lu|%p\n", n, ptr);
 	if (!(temp = ft_ultoa(n)))
 		return (NULL);
-//	printf("postultoa=%s\n", temp);
 	if (!(str = ft_convert_base(temp, "0123456789", "0123456789abcdef")))
 	{
 		free(temp);
 		return (NULL);
 	}
 	free(temp);
-//	printf("str=%s\n", str);
 	return (str);
 }
