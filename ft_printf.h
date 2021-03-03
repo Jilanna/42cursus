@@ -63,6 +63,6 @@ int				ft_is_in_base(char c, char *base);
 unsigned long	ft_savenbr(char c, char *base, unsigned long sortie);
 char			*ft_alloc(char *nbrf);
 char			*ft_itoa(int n);
-char			*ft_ptrtoa(void *ptr);
+char			*ft_ptrtoa(void *ptr, t_flags *flags);
 char			*ft_utoa(unsigned int n, char type);
 #endif

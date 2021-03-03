@@ -36,7 +36,7 @@ char	*ft_recup(t_flags *flags, va_list ap)
 	else if (flags->type == 's')
 		str = ft_strdup(va_arg(ap, char *));
 	else if (flags->type == 'p')
-		str = ft_ptrtoa(va_arg(ap, void *));
+		str = ft_ptrtoa(va_arg(ap, void *), flags);
 	else
 	{
 		if (!(str = malloc(sizeof(char) * 2)))

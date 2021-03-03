@@ -14,6 +14,11 @@
 
 char	*ft_print_str(char *str, int len, t_flags *flags)
 {
+	char	c;
+
+	c = ' ';
+	if (flags->zero == 1 && flags->minus == 0)
+		c = '0';
 	if (flags->precision < len && flags->precision > -1)
 	{
 		str[flags->precision] = '\0';
@@ -22,21 +27,26 @@ char	*ft_print_str(char *str, int len, t_flags *flags)
 	if (flags->width > len)
 	{
 		if (flags->minus == 1)
-			str = ft_add_after(str, ' ', len, flags->width);
+			str = ft_add_after(str, c, len, flags->width);
 		else
-			str = ft_add_before(str, ' ', len, flags->width - len);
+			str = ft_add_before(str, c, len, flags->width - len);
 	}
 	return (str);
 }
 
 char	*ft_print_char(char *str, t_flags *flags)
 {
+	char	c;
+
 	if (flags->width > 1)
 	{
+		c = ' ';
+		if (flags->zero == 1 && flags->minus == 0)
+			c = '0';
 		if (flags->minus == 1)
-			str = ft_add_after(str, ' ', 1, flags->width + 1);
+			str = ft_add_after(str, c, 1, flags->width);
 		else
-			str = ft_add_before(str, ' ', 1, flags->width - 1);
+			str = ft_add_before(str, c, 1, flags->width - 1);
 	}
 	else
 		flags->width = 1;

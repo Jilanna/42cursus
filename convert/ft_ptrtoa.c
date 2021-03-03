@@ -64,12 +64,30 @@ static char				*ft_ultoa(unsigned long n)
 	return (str);
 }
 
-char					*ft_ptrtoa(void *ptr)
+static char				*ft_ptrnull(t_flags *flags)
+{
+	char	*str;
+	int		n;
+
+	n = 2;
+	if (flags->precision == 0)
+		n = 1;
+	if (!(str = malloc(sizeof(char) * n)))
+		return (NULL);
+	if (n == 2)
+		str[0] = '0';
+	str[n - 1] = '\0';
+	return (str);
+}
+
+char					*ft_ptrtoa(void *ptr, t_flags *flags)
 {
 	char			*str;
 	char			*temp;
 	unsigned long	n;
 
+	if (ptr == NULL)
+		return (ft_ptrnull(flags));
 	n = (unsigned long)ptr;
 	if (!(temp = ft_ultoa(n)))
 		return (NULL);
